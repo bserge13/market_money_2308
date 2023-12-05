@@ -1,4 +1,4 @@
 class MarketVendor < ApplicationRecord
-  belongs_ to :market 
-  belongs_ to :vendor 
+  belongs_to :market 
+  belongs_to :vendor 
 end
