@@ -13,6 +13,5 @@ RSpec.describe Vendor, type: :model do
     it { should validate_presence_of(:contact_phone) }
     it { should allow_value(true).for(:credit_accepted) }
     it { should allow_value(false).for(:credit_accepted) }
-
   end
 end
