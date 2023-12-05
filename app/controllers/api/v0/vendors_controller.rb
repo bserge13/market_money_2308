@@ -7,6 +7,10 @@ class Api::V0::VendorsController < ApplicationController
     render json: Vendor.create(vendor_params)
   end
 
+  def update
+    render json: Vendor.update(params[:id], vendor_params)
+  end
+
   private 
 
   def vendor_params

@@ -30,7 +30,7 @@ describe 'Vendors API' do
   end
 
   it 'can create a new vendor' do
-    new_vendor = ({
+    vendor_params = ({
                     :name=>"Settle Downnn",
                     :description=>
                     "These tomatos? Fuggetaboutit",
@@ -40,14 +40,30 @@ describe 'Vendors API' do
                   })
     headers = { "CONTENT_TYPE" => "application/json" }
   
-    post '/api/v0/vendors/', headers: headers, params: JSON.generate(vendor: new_vendor)
+    post '/api/v0/vendors/', headers: headers, params: JSON.generate(vendor: vendor_params)
     created_vendor = Vendor.last 
 
     expect(response).to be_successful
-    expect(created_vendor.name).to eq(new_vendor[:name])
-    expect(created_vendor.description).to eq(new_vendor[:description])
-    expect(created_vendor.contact_name).to eq(new_vendor[:contact_name])
-    expect(created_vendor.contact_phone).to eq(new_vendor[:contact_phone])
-    expect(created_vendor.credit_accepted).to eq(new_vendor[:credit_accepted])
+    expect(created_vendor.name).to eq(vendor_params[:name])
+    expect(created_vendor.description).to eq(vendor_params[:description])
+    expect(created_vendor.contact_name).to eq(vendor_params[:contact_name])
+    expect(created_vendor.contact_phone).to eq(vendor_params[:contact_phone])
+    expect(created_vendor.credit_accepted).to eq(vendor_params[:credit_accepted])
+  end
+
+  it 'can update an existing vendor' do 
+    id = create(:vendor).id
+    old_name = Vendor.last.name
+    vendor_params = { name: "Bobs Burgers' Produce"}
+    headers = { "CONTENT_TYPE" => "application/json" }
+
+    patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
+    vendor = Vendor.find_by(id: id) 
+
+
+    expect(response).to be_successful
+    expect(vendor.name).to_not eq(old_name)
+    expect(vendor.name).to eq("Bobs Burgers' Produce")
+
   end
 end
