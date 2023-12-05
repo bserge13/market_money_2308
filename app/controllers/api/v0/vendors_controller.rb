@@ -11,6 +11,10 @@ class Api::V0::VendorsController < ApplicationController
     render json: Vendor.update(params[:id], vendor_params)
   end
 
+  def destroy 
+    render json: Vendor.delete(params[:id])
+  end
+
   private 
 
   def vendor_params

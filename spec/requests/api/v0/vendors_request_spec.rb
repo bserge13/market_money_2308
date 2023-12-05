@@ -64,6 +64,15 @@ describe 'Vendors API' do
     expect(response).to be_successful
     expect(vendor.name).to_not eq(old_name)
     expect(vendor.name).to eq("Bobs Burgers' Produce")
+  end
 
+  it 'can delete a vendor' do 
+    vendor = create(:vendor)
+
+    expect(Vendor.count).to eq(1)
+
+    delete "/api/v0/vendors/#{vendor.id}"
+    expect(response).to be_successful
+    expect(Vendor.count).to eq(0)
   end
 end
