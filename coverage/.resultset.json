@@ -1,12 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/blakesergesketter/m3/projects/market_money/app/models/vendor.rb": {
+      "/Users/blakesergesketter/m3/projects/market_money/app/models/market_vendor.rb": {
         "lines": [
           1,
-          1,
-          1,
-          null,
           1,
           1,
           null
@@ -19,9 +16,12 @@
           null
         ]
       },
-      "/Users/blakesergesketter/m3/projects/market_money/app/models/market_vendor.rb": {
+      "/Users/blakesergesketter/m3/projects/market_money/app/models/vendor.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
           1,
           1,
           null
@@ -101,6 +101,6 @@
         }
       }
     },
-    "timestamp": 1701739856
+    "timestamp": 1701739958
   }
 }
