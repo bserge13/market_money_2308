@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/blakesergesketter/m3/projects/market_money/app/models/market.rb": {
+      "/Users/blakesergesketter/m3/projects/market_money/app/models/vendor.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           1,
-          null,
+          1,
           null
         ]
       },
@@ -19,21 +19,17 @@
           null
         ]
       },
-      "/Users/blakesergesketter/m3/projects/market_money/app/models/market_vendor.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/models/vendor.rb": {
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v1/vendors_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
-          1,
+          null
+        ]
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/application_controller.rb": {
+        "lines": [
           1,
           null
         ]
@@ -69,14 +65,6 @@
         "branches": {
         }
       },
-      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/blakesergesketter/m3/projects/market_money/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -99,8 +87,30 @@
         ],
         "branches": {
         }
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/models/market.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/models/market_vendor.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1701740184
+    "timestamp": 1701748243
   }
 }
