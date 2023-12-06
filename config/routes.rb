@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v0 do 
       resources :vendors 
-      resources :markets 
-    end
+      
+      resources :markets do 
+        resources :vendors, controller: "market_vendors" 
+      end 
+    end 
   end
 end

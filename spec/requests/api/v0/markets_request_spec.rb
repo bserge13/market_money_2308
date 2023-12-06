@@ -77,6 +77,20 @@ RSpec.describe 'Markets API' do
     
     expect(market).to have_key(:lon)
     expect(market[:lon]).to be_a(String)
+  end
 
+  it 'can get all vendors for a given market' do 
+    vendor_1 = create(:vendor)
+    vendor_2 = create(:vendor)
+    vendor_3 = create(:vendor)
+
+    market = create(:market)
+
+    MarketVendor.create(market_id: market.id, vendor_id: vendor_1.id)
+    MarketVendor.create(market_id: market.id, vendor_id: vendor_2.id)
+    MarketVendor.create(market_id: market.id, vendor_id: vendor_3.id)
+
+    get "/api/v0/markets/#{market.id}/vendors"
+    expect(response).to be_successful
   end
 end
