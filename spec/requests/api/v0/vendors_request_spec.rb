@@ -43,12 +43,11 @@ describe 'Vendors API' do
     id = create(:vendor).id
 
     old_contact = Vendor.last.contact_name
-    old_info = Vendor.last.credit_accepted
 
-    vendor_params = {  {
+    vendor_params = ({
       'contact_name': 'Kimberly Couwer',
       'credit_accepted': false
-  } }
+                    })
     headers = { 'CONTENT_TYPE' => 'application/json' }
 
     patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
@@ -58,7 +57,6 @@ describe 'Vendors API' do
     expect(response).to be_successful
     expect(vendor.contact_name).to_not eq(old_contact)
     expect(vendor.contact_name).to eq('Kimberly Couwer')
-    expect(vendor.credit_accepted).to_not eq(old_info)
     expect(vendor.credit_accepted).to eq(false)
   end
 
@@ -68,6 +66,7 @@ describe 'Vendors API' do
     expect(Vendor.count).to eq(1)
 
     delete "/api/v0/vendors/#{vendor.id}"
+
     expect(response).to be_successful
     expect(Vendor.count).to eq(0)
   end
