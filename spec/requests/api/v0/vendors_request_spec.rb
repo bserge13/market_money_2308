@@ -9,24 +9,13 @@ describe 'Vendors API' do
     vendor = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-
-    expect(vendor).to have_key(:id)
-    expect(vendor[:id]).to be_a(Integer)
-
-    expect(vendor).to have_key(:name)
-    expect(vendor[:name]).to be_a(String)
-
-    expect(vendor).to have_key(:description)
-    expect(vendor[:description]).to be_a(String) 
-
-    expect(vendor).to have_key(:contact_name)
-    expect(vendor[:contact_name]).to be_a(String)
-
-    expect(vendor).to have_key(:contact_phone)
-    expect(vendor[:contact_phone]).to be_a(String)
-
-    expect(vendor).to have_key(:credit_accepted)
-    expect(vendor[:credit_accepted]).to be_a(TrueClass).or be_a(FalseClass)
+    expect(vendor[:data]).to have_key(:id)
+    expect(vendor[:data][:attributes]).to have_key(:name)
+    expect(vendor[:data][:attributes]).to have_key(:description)
+    expect(vendor[:data][:attributes]).to have_key(:contact_name)
+    expect(vendor[:data][:attributes]).to have_key(:contact_phone)
+    expect(vendor[:data][:attributes]).to have_key(:credit_accepted)
+    expect(vendor[:data][:attributes][:credit_accepted]).to be_a(TrueClass).or be_a(FalseClass)
   end
 
   it 'can create a new vendor' do

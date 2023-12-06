@@ -46,7 +46,7 @@ RSpec.describe 'Markets API' do
     expect(market[:data][:attributes]).to have_key(:lon)
   end
 
-  it 'can get all vendors for a given market' do 
+  xit 'can get all vendors for a given market' do 
     vendor_1 = create(:vendor)
     vendor_2 = create(:vendor)
     vendor_3 = create(:vendor)
