@@ -18,6 +18,37 @@
           null
         ]
       },
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/markets_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/serializers/market_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
       "/Users/blakesergesketter/m3/projects/market_money/app/models/market_vendor.rb": {
         "lines": [
           1,
@@ -37,62 +68,6 @@
           null
         ]
       },
-      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/markets_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/market_vendors_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/vendors_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
       "/Users/blakesergesketter/m3/projects/market_money/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -105,6 +80,47 @@
       },
       "/Users/blakesergesketter/m3/projects/market_money/app/channels/application_cable/connection.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/market_vendors_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/controllers/api/v0/vendors_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
           0,
           0,
           0,
@@ -135,8 +151,18 @@
         ],
         "branches": {
         }
+      },
+      "/Users/blakesergesketter/m3/projects/market_money/app/serializers/vendor_serializer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1701800564
+    "timestamp": 1701826327
   }
 }
