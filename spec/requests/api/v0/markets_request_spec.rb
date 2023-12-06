@@ -34,15 +34,16 @@ RSpec.describe 'Markets API' do
 
     expect(response).to be_successful
 
+    expect(market).to be_a(Hash)
     expect(market[:data]).to have_key(:id) 
-    expect(market[:data]).to have_key(:name)
-    expect(market[:data]).to have_key(:street)
-    expect(market[:data]).to have_key(:city)
-    expect(market[:data]).to have_key(:county)
-    expect(market[:data]).to have_key(:state)
-    expect(market[:data]).to have_key(:zip)
-    expect(market[:data]).to have_key(:lat)
-    expect(market[:data]).to have_key(:lon)
+    expect(market[:data][:attributes]).to have_key(:name)
+    expect(market[:data][:attributes]).to have_key(:street)
+    expect(market[:data][:attributes]).to have_key(:city)
+    expect(market[:data][:attributes]).to have_key(:county)
+    expect(market[:data][:attributes]).to have_key(:state)
+    expect(market[:data][:attributes]).to have_key(:zip)
+    expect(market[:data][:attributes]).to have_key(:lat)
+    expect(market[:data][:attributes]).to have_key(:lon)
   end
 
   it 'can get all vendors for a given market' do 
