@@ -4,15 +4,15 @@ class Api::V0::VendorsController < ApplicationController
   end
 
   def create 
-    render json: Vendor.create(vendor_params)
+    render json: VendorSerializer.new(Vendor.create(vendor_params))
   end
 
   def update
-    render json: Vendor.update(params[:id], vendor_params)
+    render json: VendorSerializer.new(Vendor.update(params[:id], vendor_params))
   end
 
   def destroy 
-    render json: Vendor.delete(params[:id])
+    render json: VendorSerializer.new(Vendor.delete(params[:id]))
   end
 
   private 

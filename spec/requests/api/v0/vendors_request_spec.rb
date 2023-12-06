@@ -18,18 +18,17 @@ describe 'Vendors API' do
     expect(vendor[:data][:attributes][:credit_accepted]).to be_a(TrueClass).or be_a(FalseClass)
   end
 
-  it 'can create a new vendor' do
+  it 'can create a new vendor' do # check custom methods for boolean in CREATE VENDOR details 
     vendor_params = ({
-                    :name=>"Settle Downnn",
-                    :description=>
-                    "These tomatos? Fuggetaboutit",
-                    :contact_name=>"Ronnell Fair",
-                    :contact_phone=>"123-456-7890",
-                    :credit_accepted=>true
+                    'name': 'Buzzy Bees',
+                    'description': 'local honey and wax products',
+                    'contact_name': 'Berly Couwer',
+                    'contact_phone': '8389928383',
+                    'credit_accepted': false
                   })
-    headers = { "CONTENT_TYPE" => "application/json" }
+    headers = { 'CONTENT_TYPE' => 'application/json' }
   
-    post '/api/v0/vendors/', headers: headers, params: JSON.generate(vendor: vendor_params)
+    post '/api/v0/vendors', headers: headers, params: JSON.generate(vendor: vendor_params)
     created_vendor = Vendor.last 
 
     expect(response).to be_successful
@@ -42,17 +41,25 @@ describe 'Vendors API' do
 
   it 'can update an existing vendor' do 
     id = create(:vendor).id
-    old_name = Vendor.last.name
-    vendor_params = { name: "Bobs Burgers' Produce"}
-    headers = { "CONTENT_TYPE" => "application/json" }
+
+    old_contact = Vendor.last.contact_name
+    old_info = Vendor.last.credit_accepted
+
+    vendor_params = {  {
+      'contact_name': 'Kimberly Couwer',
+      'credit_accepted': false
+  } }
+    headers = { 'CONTENT_TYPE' => 'application/json' }
 
     patch "/api/v0/vendors/#{id}", headers: headers, params: JSON.generate({vendor: vendor_params})
     vendor = Vendor.find_by(id: id) 
 
 
     expect(response).to be_successful
-    expect(vendor.name).to_not eq(old_name)
-    expect(vendor.name).to eq("Bobs Burgers' Produce")
+    expect(vendor.contact_name).to_not eq(old_contact)
+    expect(vendor.contact_name).to eq('Kimberly Couwer')
+    expect(vendor.credit_accepted).to_not eq(old_info)
+    expect(vendor.credit_accepted).to eq(false)
   end
 
   it 'can delete a vendor' do 
