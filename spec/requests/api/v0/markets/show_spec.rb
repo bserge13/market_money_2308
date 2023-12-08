@@ -5,7 +5,7 @@ RSpec.describe 'Markets API' do
     id = create(:market).id
 
     header = { CONTENT_TYPE: 'application/json',
-    :ACCEPT: 'application/json' }
+    ACCEPT: 'application/json' }
 
     get "/api/v0/markets/#{id}", headers: header
 

@@ -45,11 +45,11 @@
           null,
           null,
           1,
-          2,
-          2,
+          3,
+          3,
           1,
           null,
-          1,
+          2,
           null,
           null,
           null
@@ -172,55 +172,8 @@
           null
         ]
       },
-      "/Users/blakesergesketter/m3/projects/market_money/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/blakesergesketter/m3/projects/market_money/app/mailers/application_mailer.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/blakesergesketter/m3/projects/market_money/app/poros/error_message.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
           0,
           0,
           0,
@@ -263,6 +216,6 @@
         }
       }
     },
-    "timestamp": 1702002938
+    "timestamp": 1702046739
   }
 }

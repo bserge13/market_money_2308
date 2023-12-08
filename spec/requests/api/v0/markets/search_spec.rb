@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Search Markets' do 
   before(:each) do
-    @market1 = create!(:market, name:'Posey County', city: 'Evansville', state: 'Indiana')
-    @market2 = create!(:market, name:'Vanderburgh', city: 'Evansville', state: 'Indiana')
-    @market3 = create!(:market, name:'Wadesville', city: 'Evansville', state: 'Indiana')
+    @market1 = create(:market, name:'Posey County', city: 'Evansville', state: 'Indiana')
+    @market2 = create(:market, name:'Vanderburgh', city: 'Evansville', state: 'Indiana')
+    @market3 = create(:market, name:'Wadesville', city: 'Evansville', state: 'Indiana')
   end
 
   it 'can search for markets by state, city, and name' do
@@ -42,4 +42,5 @@ RSpec.describe 'Search Markets' do
       expect(market[:attributes][:lon]).to eq(@market1.lon)
       expect(market[:attributes][:vendor_count]).to eq(@market1.vendor_count)
     end 
+  end
 end
