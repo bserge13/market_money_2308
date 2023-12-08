@@ -4,11 +4,10 @@ RSpec.describe 'Vendors API' do
   it 'can render a single vendor by their :id' do 
     vendor = create(:vendor)
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     get "/api/v0/vendors/#{vendor.id}", headers: header
-
     expect(response).to be_successful
     expect(response.status).to eq(200)
 
@@ -30,14 +29,14 @@ RSpec.describe 'Vendors API' do
     expect(vendor_data[:data][:attributes][:contact_name]).to eq(vendor.contact_name)
     expect(vendor_data[:data][:attributes]).to have_key(:contact_phone)
     expect(vendor_data[:data][:attributes][:contact_phone]).to eq(vendor.contact_phone)
-    expect(vendor[:data][:attributes][:credit_accepted]).to be_a(TrueClass).or be_a(FalseClass)
+    expect(vendor_data[:data][:attributes][:credit_accepted]).to be_a(TrueClass).or be_a(FalseClass)
     expect(vendor_data[:data][:attributes]).to have_key(:credit_accepted)
     expect(vendor_data[:data][:attributes][:credit_accepted]).to eq(vendor.credit_accepted)
   end
 
   it 'sad path: vendor does not exist' do
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     get '/api/v0/vendors/00', headers: header
     expect(response).to_not be_successful
@@ -45,7 +44,7 @@ RSpec.describe 'Vendors API' do
 
     vendor = JSON.parse(response.body, symbolize_names: true)
 
-    expect{Vendor.find(0)}.to raise_error(ActiveRecord::RecordNotFound)
-    expect(vendor[:errors][0][:detail]).to eq("Couldn't find Vendor with 'id'=0")
+    expect{Vendor.find(00)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect(vendor[:errors][0][:detail]).to eq("Couldn't find Vendor with 'id'=00")
   end 
 end

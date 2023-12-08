@@ -11,8 +11,8 @@ RSpec.describe 'Vendors API' do
       'credit_accepted': false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
     patch "/api/v0/vendors/#{id}", headers: header, params: JSON.generate(vendor_params)
     expect(response).to be_successful
@@ -31,8 +31,8 @@ RSpec.describe 'Vendors API' do
       'credit_accepted': false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
     patch "/api/v0/vendors/00", headers: headers, params: JSON.generate(vendor_params)
     expect(response).to_not be_successful
@@ -51,10 +51,10 @@ RSpec.describe 'Vendors API' do
       credit_accepted: false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
-    patch "/api/v0/vendors/#{vendor.id}", headers: headers, params: JSON.generate(vendor_params)
+    patch "/api/v0/vendors/#{vendor.id}", headers: header, params: JSON.generate(vendor_params)
     expect(response).to_not be_successful
     expect(response.status).to eq(400)
 
@@ -65,6 +65,6 @@ RSpec.describe 'Vendors API' do
     expect(error_data[:errors]).to be_an Array
     expect(error_data[:errors][0]).to be_a Hash
     expect(error_data[:errors][0]).to have_key(:detail)
-    expect(error_data[:errors][0][:detail]).to eq("Validation failed: Value is missing or empty")
+    expect(error_data[:errors][0][:detail]).to eq('Validation failed: Value is missing or empty')
   end 
 end

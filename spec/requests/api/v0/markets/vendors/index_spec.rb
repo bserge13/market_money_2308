@@ -12,8 +12,8 @@ RSpec.describe 'Markets API' do
     MarketVendor.create(market_id: market.id, vendor_id: vendor_2.id)
     MarketVendor.create(market_id: market.id, vendor_id: vendor_3.id)
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     get "/api/v0/markets/#{market.id}/vendors", headers: header
     expect(response).to be_successful
@@ -44,10 +44,10 @@ RSpec.describe 'Markets API' do
   end
 
   it 'sad path: market does not exist' do
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
-    get "/api/v0/markets/00/vendors", headers: header
+    get '/api/v0/markets/00/vendors', headers: header
     expect(response).to_not be_successful
     expect(response.status).to eq(404)
 
