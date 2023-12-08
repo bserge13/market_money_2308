@@ -34,4 +34,18 @@ RSpec.describe 'Vendors API' do
     expect(vendor_data[:data][:attributes]).to have_key(:credit_accepted)
     expect(vendor_data[:data][:attributes][:credit_accepted]).to eq(vendor.credit_accepted)
   end
+
+  it 'sad path: vendor does not exist' do
+    header = { 'CONTENT_TYPE' => 'application/json',
+    'ACCEPT' => 'application/json' }
+
+    get '/api/v0/vendors/00', headers: header
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+
+    vendor = JSON.parse(response.body, symbolize_names: true)
+
+    expect{Vendor.find(0)}.to raise_error(ActiveRecord::RecordNotFound)
+    expect(vendor[:errors][0][:detail]).to eq("Couldn't find Vendor with 'id'=0")
+  end 
 end
