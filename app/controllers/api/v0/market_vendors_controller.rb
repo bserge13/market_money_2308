@@ -1,17 +1,19 @@
 class Api::V0::MarketVendorsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found_response 
-  rescue_from ActiveRecord::RecordInvalid, with: :validation_error_response 
-
   def index 
-    market = Market.find(params[:market_id])
+    market = Market.find_by(id: params[:market_id])
     vendors = market.vendors 
-    render json: VendorSerializer.new(vendors)
+
+    if market.present?
+      render json: VendorSerializer.new(vendors), status: 200
+    else 
+      render json: { "errors": [{ "detail": "Couldn't find Market with 'id'=#{params[:market_id]}" }] }, status: 404
+    end 
   end 
 
   def create
     market = Market.find(params[:market_vendor][:market_id])
     vendor = Vendor.find(params[:market_vendor][:vendor_id])
-    market_vendor = MarketVendor.create!(market_vendor_params)
+    market_vendor = MarketVendor.new(market_id: market.id, vendor_id: vendor.id)
 
     render json: MarketVendorSerializer.new(market_vendor), status: 201
   end

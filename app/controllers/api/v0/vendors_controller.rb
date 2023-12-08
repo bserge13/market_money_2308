@@ -1,6 +1,11 @@
 class Api::V0::VendorsController < ApplicationController
   def show
-    render json: VendorSerializer.new(Vendor.find(params[:id]))
+    vendor = Vendor.find_by(id: params[:id])
+    if vendor.present?
+      render json: VendorSerializer.new(vendor), status: 200
+    else
+      render json: { "errors": [{ "detail": "Couldn't find Vendor with 'id'=#{params[:id]}" }] }, status: 404
+    end
   end
 
   def create
@@ -13,7 +18,14 @@ class Api::V0::VendorsController < ApplicationController
   end
 
   def update
-    render json: VendorSerializer.new(Vendor.update(params[:id], vendor_params))
+    vendor = Vendor.find_by(id: params[:id])
+    if vendor.nil?
+      render json: { "errors": [{ "detail": "Couldn't find Vendor with 'id'=#{params[:id]}" }] }, status: 404
+    elsif vendor.update(vendor_params)
+      render json: VendorSerializer.new(vendor), status: 200
+    else
+      render json: { "errors": [{ "detail": "Validation failed: Value is missing or empty" }] }, status: 400
+    end
   end
 
   def destroy 
@@ -28,6 +40,6 @@ class Api::V0::VendorsController < ApplicationController
   private 
 
   def vendor_params
-    params.require(:vendor).permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)
+    params.permit(:name, :description, :contact_name, :contact_phone, :credit_accepted)
   end
 end

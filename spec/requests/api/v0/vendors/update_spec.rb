@@ -65,6 +65,6 @@ RSpec.describe 'Vendors API' do
     expect(error_data[:errors]).to be_an Array
     expect(error_data[:errors][0]).to be_a Hash
     expect(error_data[:errors][0]).to have_key(:detail)
-    expect(error_data[:errors][0][:detail]).to eq("Validation failed: Value is missing or empty")
+    expect(error_data[:errors][0][:detail]).to eq('Validation failed: Value is missing or empty')
   end 
 end
