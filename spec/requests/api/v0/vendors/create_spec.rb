@@ -12,8 +12,7 @@ RSpec.describe 'Vendors API' do
 
     header = { 'CONTENT_TYPE' => 'application/json',
     'ACCEPT' => 'application/json' }              
-    post '/api/v0/vendors', headers: header, params: JSON.generate(vendor: vendor_params)
-
+    post '/api/v0/vendors', headers: header, params: JSON.generate(vendor_params)
     expect(response).to be_successful
     expect(response.status).to eq(201)
 

@@ -10,6 +10,7 @@ class Api::V0::VendorsController < ApplicationController
 
   def create
     vendor = Vendor.new(vendor_params)
+
     if vendor.save
       render json: VendorSerializer.new(vendor), status: 201
     else
@@ -19,6 +20,7 @@ class Api::V0::VendorsController < ApplicationController
 
   def update
     vendor = Vendor.find_by(id: params[:id])
+    
     if vendor.nil?
       render json: { "errors": [{ "detail": "Couldn't find Vendor with 'id'=#{params[:id]}" }] }, status: 404
     elsif vendor.update(vendor_params)

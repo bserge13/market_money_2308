@@ -47,7 +47,7 @@ RSpec.describe 'Markets API' do
     header = { 'CONTENT_TYPE' => 'application/json',
     'ACCEPT' => 'application/json' }
 
-    get "/api/v0/markets/00/vendors", headers: header
+    get '/api/v0/markets/00/vendors', headers: header
     expect(response).to_not be_successful
     expect(response.status).to eq(404)
 

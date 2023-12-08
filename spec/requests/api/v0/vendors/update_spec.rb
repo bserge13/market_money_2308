@@ -54,7 +54,7 @@ RSpec.describe 'Vendors API' do
     header = { 'CONTENT_TYPE' => 'application/json',
     'ACCEPT' => 'application/json' }   
 
-    patch "/api/v0/vendors/#{vendor.id}", headers: headers, params: JSON.generate(vendor_params)
+    patch "/api/v0/vendors/#{vendor.id}", headers: header, params: JSON.generate(vendor_params)
     expect(response).to_not be_successful
     expect(response.status).to eq(400)
 
