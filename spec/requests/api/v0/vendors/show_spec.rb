@@ -4,11 +4,10 @@ RSpec.describe 'Vendors API' do
   it 'can render a single vendor by their :id' do 
     vendor = create(:vendor)
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     get "/api/v0/vendors/#{vendor.id}", headers: header
-
     expect(response).to be_successful
     expect(response.status).to eq(200)
 
@@ -36,8 +35,8 @@ RSpec.describe 'Vendors API' do
   end
 
   it 'sad path: vendor does not exist' do
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     get '/api/v0/vendors/00', headers: header
     expect(response).to_not be_successful

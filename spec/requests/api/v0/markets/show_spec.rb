@@ -4,8 +4,8 @@ RSpec.describe 'Markets API' do
   it 'can get a single market by its id' do 
     id = create(:market).id
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    :ACCEPT: 'application/json' }
 
     get "/api/v0/markets/#{id}", headers: header
 

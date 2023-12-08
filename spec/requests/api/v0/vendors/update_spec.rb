@@ -11,8 +11,8 @@ RSpec.describe 'Vendors API' do
       'credit_accepted': false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
     patch "/api/v0/vendors/#{id}", headers: header, params: JSON.generate(vendor_params)
     expect(response).to be_successful
@@ -31,8 +31,8 @@ RSpec.describe 'Vendors API' do
       'credit_accepted': false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
     patch "/api/v0/vendors/00", headers: headers, params: JSON.generate(vendor_params)
     expect(response).to_not be_successful
@@ -51,8 +51,8 @@ RSpec.describe 'Vendors API' do
       credit_accepted: false
     }
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }   
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }   
 
     patch "/api/v0/vendors/#{vendor.id}", headers: header, params: JSON.generate(vendor_params)
     expect(response).to_not be_successful

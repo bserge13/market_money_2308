@@ -7,8 +7,8 @@ RSpec.describe 'MarketVendors API' do
   end
 
   it 'can create a new market_vendor' do
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
     mv_params = { market_id: @market.id, vendor_id: @vendor.id }
 

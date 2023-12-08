@@ -10,8 +10,9 @@ RSpec.describe 'Vendors API' do
                     'credit_accepted': false
                   })
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }              
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }      
+
     post '/api/v0/vendors', headers: header, params: JSON.generate(vendor_params)
     expect(response).to be_successful
     expect(response.status).to eq(201)
@@ -42,6 +43,7 @@ RSpec.describe 'Vendors API' do
       description: "local honey and wax products",
       credit_accepted: true
     }
+
     headers = {
       CONTENT_TYPE: "application/json",
       ACCEPT: "application/json"

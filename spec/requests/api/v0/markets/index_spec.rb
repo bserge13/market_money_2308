@@ -4,8 +4,8 @@ RSpec.describe 'Markets API' do
   it 'sends a list of markets' do
     create_list(:market, 4)
 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
     get '/api/v0/markets', headers: header 
 
     expect(response).to be_successful

@@ -7,8 +7,8 @@ RSpec.describe 'MarketVendors API' do
   end
 
   it '' do 
-    header = { 'CONTENT_TYPE' => 'application/json',
-    'ACCEPT' => 'application/json' }
+    header = { CONTENT_TYPE: 'application/json',
+    ACCEPT: 'application/json' }
 
   end
 end
