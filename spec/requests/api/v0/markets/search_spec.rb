@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Search Markets' do 
   before(:each) do
     @market1 = create!(:market, name:'Posey County', city: 'Evansville', state: 'Indiana')
-    @market2 = create!(:market, name:'Vanderburgh', city: 'Evansville', state: 'India')
+    @market2 = create!(:market, name:'Vanderburgh', city: 'Evansville', state: 'Indiana')
     @market3 = create!(:market, name:'Wadesville', city: 'Evansville', state: 'Indiana')
   end
 
